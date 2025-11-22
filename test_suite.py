@@ -49,12 +49,17 @@ class ConcurrencyTestSuite:
     def _monitor_hardware(self):
         while self.monitoring:
             try:
-                result = subprocess.run(['nvidia-smi', '--query-gpu=index,name,utilization.gpu,utilization.memory,memory.used', '--format=csv,noheader,nounits'], capture_output=True, text=True, timeout=5)
+                result = subprocess.run([
+                    'nvidia-smi',
+                    '--query-gpu=index,name,pci.bus_id,driver_version,pstate,pcie.link.gen.max,pcie.link.gen.current,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used,fan.speed,power.draw,power.limit,clocks.current.graphics,clocks.current.memory,clocks.current.video',
+                    '--format=csv,noheader,nounits'
+                ], capture_output=True, text=True, timeout=5)
                 if result.returncode == 0:
                     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                     with open(self.hardware_log, 'a') as f:
-                        f.write(f"{timestamp}:\n")
-                        for i, line in enumerate(result.stdout.strip().split('\n')):
+                        f.write(f"{timestamp}\n")
+                        lines = result.stdout.strip().split('\n')
+                        for i, line in enumerate(lines):
                             f.write(f"GPU{i}: {line}\n")
                         f.write("---\n")
             except Exception as e:

@@ -1,0 +1,77 @@
+{
+  "test_config": {
+    "endpoint": "http://localhost:11434",
+    "num_students": 4,
+    "duration": 30,
+    "model": "gemma2:9b",
+    "timestamp": "20251122_122555"
+  },
+  "overall": {
+    "total_time": 79.62772965431213,
+    "total_requests": 4,
+    "successful": 4,
+    "failed": 0,
+    "success_rate": 100.0,
+    "requests_per_second": 0.0502337567247641,
+    "total_tokens": 1866,
+    "overall_throughput": 23.434047512102453,
+    "mean_ttft": 51.52089178562164,
+    "median_ttft": 52.704925537109375,
+    "p95_ttft": 56.94505262374878,
+    "p99_ttft": 56.94505262374878
+  },
+  "per_student": [
+    {
+      "student_id": 1,
+      "total_requests": 1,
+      "successful": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 52.33070611953735,
+      "median_ttft": 52.33070611953735,
+      "p95_ttft": 0,
+      "avg_total_time": 72.90118837356567,
+      "total_tokens": 421,
+      "tokens_per_second": 5.774940153824113
+    },
+    {
+      "student_id": 2,
+      "total_requests": 1,
+      "successful": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 56.94505262374878,
+      "median_ttft": 56.94505262374878,
+      "p95_ttft": 0,
+      "avg_total_time": 77.62298083305359,
+      "total_tokens": 442,
+      "tokens_per_second": 5.694189984157199
+    },
+    {
+      "student_id": 3,
+      "total_requests": 1,
+      "successful": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 43.72866344451904,
+      "median_ttft": 43.72866344451904,
+      "p95_ttft": 0,
+      "avg_total_time": 67.53479886054993,
+      "total_tokens": 516,
+      "tokens_per_second": 7.640505468380368
+    },
+    {
+      "student_id": 4,
+      "total_requests": 1,
+      "successful": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 53.0791449546814,
+      "median_ttft": 53.0791449546814,
+      "p95_ttft": 0,
+      "avg_total_time": 75.79200625419617,
+      "total_tokens": 487,
+      "tokens_per_second": 6.425479731552001
+    }
+  ]
+}

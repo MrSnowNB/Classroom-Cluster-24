@@ -1,0 +1,77 @@
+{
+  "test_config": {
+    "endpoint": "http://localhost:11434",
+    "num_students": 4,
+    "duration": 30,
+    "model": "gemma2:9b",
+    "timestamp": "20251122_112818"
+  },
+  "overall": {
+    "total_time": 35.45861005783081,
+    "total_requests": 8,
+    "successful": 8,
+    "failed": 0,
+    "success_rate": 100.0,
+    "requests_per_second": 0.2256151605196169,
+    "total_tokens": 3262,
+    "overall_throughput": 91.99458170187378,
+    "mean_ttft": 2.2107090651988983,
+    "median_ttft": 2.2342275381088257,
+    "p95_ttft": 4.215184926986694,
+    "p99_ttft": 4.215184926986694
+  },
+  "per_student": [
+    {
+      "student_id": 1,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 2.155228853225708,
+      "median_ttft": 2.155228853225708,
+      "p95_ttft": 4.126997709274292,
+      "avg_total_time": 14.735153913497925,
+      "total_tokens": 818,
+      "tokens_per_second": 27.75675112733919
+    },
+    {
+      "student_id": 2,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 2.278321146965027,
+      "median_ttft": 2.278321146965027,
+      "p95_ttft": 4.215184926986694,
+      "avg_total_time": 15.066659450531006,
+      "total_tokens": 832,
+      "tokens_per_second": 27.610632693057823
+    },
+    {
+      "student_id": 3,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 2.203268051147461,
+      "median_ttft": 2.203268051147461,
+      "p95_ttft": 4.2045276165008545,
+      "avg_total_time": 14.75054121017456,
+      "total_tokens": 784,
+      "tokens_per_second": 26.57529607995726
+    },
+    {
+      "student_id": 4,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 2.2060182094573975,
+      "median_ttft": 2.2060182094573975,
+      "p95_ttft": 4.206218481063843,
+      "avg_total_time": 15.224976778030396,
+      "total_tokens": 828,
+      "tokens_per_second": 27.192159701511073
+    }
+  ]
+}

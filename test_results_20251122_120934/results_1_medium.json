@@ -1,0 +1,38 @@
+{
+  "test_config": {
+    "endpoint": "http://localhost:11434",
+    "num_students": 1,
+    "duration": 30,
+    "model": "gemma2:9b",
+    "timestamp": "20251122_121017"
+  },
+  "overall": {
+    "total_time": 35.259241342544556,
+    "total_requests": 4,
+    "successful": 4,
+    "failed": 0,
+    "success_rate": 100.0,
+    "requests_per_second": 0.11344543579766461,
+    "total_tokens": 1520,
+    "overall_throughput": 43.10926560311255,
+    "mean_ttft": 0.3801349997520447,
+    "median_ttft": 0.3818260431289673,
+    "p95_ttft": 0.38636350631713867,
+    "p99_ttft": 0.38636350631713867
+  },
+  "per_student": [
+    {
+      "student_id": 1,
+      "total_requests": 4,
+      "successful": 4,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.3801349997520447,
+      "median_ttft": 0.3818260431289673,
+      "p95_ttft": 0.38636350631713867,
+      "avg_total_time": 6.312014579772949,
+      "total_tokens": 1520,
+      "tokens_per_second": 60.20264928058342
+    }
+  ]
+}

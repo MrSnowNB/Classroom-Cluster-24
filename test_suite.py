@@ -12,11 +12,14 @@ Generates comprehensive analysis with charts and recommendations.
 import subprocess
 import os
 import json
+import aiohttp
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from datetime import datetime
 import argparse
+import threading
+import time
 
 # Set up plotting style
 sns.set_style("whitegrid")
@@ -29,6 +32,35 @@ class ConcurrencyTestSuite:
         self.results_dir = f"test_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         os.makedirs(self.results_dir, exist_ok=True)
         self.all_results = []
+        self.hardware_log = os.path.join(self.results_dir, "hardware_monitor.log")
+        self.monitor_thread = None
+        self.monitoring = False
+
+    def start_hardware_monitoring(self):
+        self.monitoring = True
+        self.monitor_thread = threading.Thread(target=self._monitor_hardware, daemon=True)
+        self.monitor_thread.start()
+
+    def stop_hardware_monitoring(self):
+        self.monitoring = False
+        if self.monitor_thread:
+            self.monitor_thread.join(timeout=10)
+
+    def _monitor_hardware(self):
+        while self.monitoring:
+            try:
+                result = subprocess.run(['nvidia-smi', '--query-gpu=index,name,utilization.gpu,utilization.memory,memory.used', '--format=csv,noheader,nounits'], capture_output=True, text=True, timeout=5)
+                if result.returncode == 0:
+                    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    with open(self.hardware_log, 'a') as f:
+                        f.write(f"{timestamp}:\n")
+                        for i, line in enumerate(result.stdout.strip().split('\n')):
+                            f.write(f"GPU{i}: {line}\n")
+                        f.write("---\n")
+            except Exception as e:
+                with open(os.path.join(self.results_dir, "monitor_error.log"), 'a') as f:
+                    f.write(f"{datetime.now()}: {e}\n")
+            time.sleep(5)
 
     def run_single_test(self, concurrency, prompt_length="mixed", duration=60):
         """
@@ -75,13 +107,50 @@ class ConcurrencyTestSuite:
             print(f"Test failed: {e}")
             return False
 
+    async def warm_up(self, num_requests=5):
+        """Run warm-up requests to load models into memory"""
+        async with aiohttp.ClientSession() as session:
+            print("Starting model warm-up...")
+            for i in range(num_requests):
+                try:
+                    async with session.post(
+                        f"{self.endpoint}/api/generate",
+                        json={
+                            "model": self.model,
+                            "prompt": f"Warm-up request {i+1}: Explain the concept of artificial intelligence in brief.",
+                            "stream": True,
+                            "options": {"num_predict": 50}  # Limit output for warm-up
+                        },
+                        timeout=aiohttp.ClientTimeout(total=30)
+                    ) as response:
+                        if response.status == 200:
+                            async for line in response.content:
+                                if line and json.loads(line).get('done', False):
+                                    break
+                        print(f"Warm-up request {i+1} completed")
+                except Exception as e:
+                    print(f"Warm-up request {i+1} failed: {e}")
+            print("Model warm-up completed")
+
     def run_full_suite(self, max_concurrency=6, include_prompt_tests=True):
         """Run the complete test suite"""
 
-        # Phase 1: Single card concurrency scaling (1-6 users)
-        print("\nPHASE 1: Single Card Concurrency Scaling")
-        for concurrent in [1, 2, 4, 6]:
-            self.run_single_test(concurrent, "medium", duration=30)  # Shorter for testing
+        print("\nPHASE 0: Model Warm-up")
+        # Run warm-up to load models into memory
+        import asyncio
+        asyncio.run(self.warm_up())
+
+        # Phase 1: Incremental concurrency scaling (1-24 users)
+        print("\nPHASE 1: Incremental Concurrency Scaling (1-24 users)")
+        for concurrent in range(1, 25):
+            try:
+                self.run_single_test(concurrent, "medium", duration=30)
+            except Exception as e:
+                crash_log = os.path.join(self.results_dir, "crash_log.txt")
+                with open(crash_log, 'a') as f:
+                    f.write(f"{datetime.now().isoformat()}: CRASH during test with {concurrent} users: {str(e)}\n")
+                print(f"CRASH logged for {concurrent} users: {e}")
+                break  # Stop further tests if crashed
 
         # Optional: Phase 2: Prompt length variations at fixed concurrency
         if include_prompt_tests:

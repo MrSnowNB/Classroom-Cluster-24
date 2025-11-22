@@ -1,0 +1,90 @@
+{
+  "test_config": {
+    "endpoint": "http://localhost:11434",
+    "num_students": 5,
+    "duration": 30,
+    "model": "gemma2:9b",
+    "timestamp": "20251122_111344"
+  },
+  "overall": {
+    "total_time": 53.336639642715454,
+    "total_requests": 10,
+    "successful": 10,
+    "failed": 0,
+    "success_rate": 100.0,
+    "requests_per_second": 0.18748837697662807,
+    "total_tokens": 3956,
+    "overall_throughput": 74.17040193195406,
+    "mean_ttft": 0.25069613456726075,
+    "median_ttft": 0.2529871463775635,
+    "p95_ttft": 0.30405569076538086,
+    "p99_ttft": 0.30405569076538086
+  },
+  "per_student": [
+    {
+      "student_id": 1,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.2108614444732666,
+      "median_ttft": 0.2108614444732666,
+      "p95_ttft": 0.25140881538391113,
+      "avg_total_time": 18.616464495658875,
+      "total_tokens": 681,
+      "tokens_per_second": 18.290261294210847
+    },
+    {
+      "student_id": 2,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.2834409475326538,
+      "median_ttft": 0.2834409475326538,
+      "p95_ttft": 0.30405569076538086,
+      "avg_total_time": 24.165926814079285,
+      "total_tokens": 921,
+      "tokens_per_second": 19.05575579794062
+    },
+    {
+      "student_id": 3,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.24735844135284424,
+      "median_ttft": 0.24735844135284424,
+      "p95_ttft": 0.25887036323547363,
+      "avg_total_time": 23.026854395866394,
+      "total_tokens": 801,
+      "tokens_per_second": 17.39273602528597
+    },
+    {
+      "student_id": 4,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.27729594707489014,
+      "median_ttft": 0.27729594707489014,
+      "p95_ttft": 0.30002641677856445,
+      "avg_total_time": 22.487390279769897,
+      "total_tokens": 772,
+      "tokens_per_second": 17.165175469349737
+    },
+    {
+      "student_id": 5,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.23452389240264893,
+      "median_ttft": 0.23452389240264893,
+      "p95_ttft": 0.24965906143188477,
+      "avg_total_time": 22.431987643241882,
+      "total_tokens": 781,
+      "tokens_per_second": 17.408176493786833
+    }
+  ]
+}

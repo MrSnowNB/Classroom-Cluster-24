@@ -1,0 +1,129 @@
+{
+  "test_config": {
+    "endpoint": "http://localhost:11434",
+    "num_students": 8,
+    "duration": 30,
+    "model": "gemma2:9b",
+    "timestamp": "20251122_121522"
+  },
+  "overall": {
+    "total_time": 40.38522005081177,
+    "total_requests": 14,
+    "successful": 14,
+    "failed": 0,
+    "success_rate": 100.0,
+    "requests_per_second": 0.34666147621296894,
+    "total_tokens": 5956,
+    "overall_throughput": 147.47969659460307,
+    "mean_ttft": 3.5821455035890852,
+    "median_ttft": 0.4374786615371704,
+    "p95_ttft": 16.153886795043945,
+    "p99_ttft": 16.153886795043945
+  },
+  "per_student": [
+    {
+      "student_id": 1,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.4019913673400879,
+      "median_ttft": 0.4019913673400879,
+      "p95_ttft": 0.43686652183532715,
+      "avg_total_time": 14.875389099121094,
+      "total_tokens": 852,
+      "tokens_per_second": 28.637906354003878
+    },
+    {
+      "student_id": 2,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.4289478063583374,
+      "median_ttft": 0.4289478063583374,
+      "p95_ttft": 0.43809080123901367,
+      "avg_total_time": 12.676163792610168,
+      "total_tokens": 753,
+      "tokens_per_second": 29.70141488858707
+    },
+    {
+      "student_id": 3,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 3.9742478132247925,
+      "median_ttft": 3.9742478132247925,
+      "p95_ttft": 7.503861904144287,
+      "avg_total_time": 17.689995884895325,
+      "total_tokens": 884,
+      "tokens_per_second": 24.985873534171
+    },
+    {
+      "student_id": 4,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 3.504908561706543,
+      "median_ttft": 3.504908561706543,
+      "p95_ttft": 6.573725461959839,
+      "avg_total_time": 17.1234689950943,
+      "total_tokens": 842,
+      "tokens_per_second": 24.58613964965932
+    },
+    {
+      "student_id": 5,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.42665207386016846,
+      "median_ttft": 0.42665207386016846,
+      "p95_ttft": 0.4358983039855957,
+      "avg_total_time": 12.828847408294678,
+      "total_tokens": 761,
+      "tokens_per_second": 29.659718281003343
+    },
+    {
+      "student_id": 6,
+      "total_requests": 1,
+      "successful": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 15.642675161361694,
+      "median_ttft": 15.642675161361694,
+      "p95_ttft": 0,
+      "avg_total_time": 32.76074171066284,
+      "total_tokens": 464,
+      "tokens_per_second": 14.163293496159735
+    },
+    {
+      "student_id": 7,
+      "total_requests": 1,
+      "successful": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 16.153886795043945,
+      "median_ttft": 16.153886795043945,
+      "p95_ttft": 0,
+      "avg_total_time": 35.84504294395447,
+      "total_tokens": 609,
+      "tokens_per_second": 16.98979691424006
+    },
+    {
+      "student_id": 8,
+      "total_requests": 2,
+      "successful": 2,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.43998992443084717,
+      "median_ttft": 0.43998992443084717,
+      "p95_ttft": 0.44577717781066895,
+      "avg_total_time": 13.410561203956604,
+      "total_tokens": 791,
+      "tokens_per_second": 29.491681517646935
+    }
+  ]
+}

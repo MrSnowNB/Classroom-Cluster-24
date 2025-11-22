@@ -10,7 +10,7 @@ Group=ollama
 ExecStart=/usr/local/bin/ollama serve
 Restart=always
 RestartSec=3
-Environment="OLLAMA_HOST=0.0.0.0:11435"
+Environment="OLLAMA_HOST=0.0.0.0:11436"
 Environment="CUDA_VISIBLE_DEVICES=1"
 Environment="OLLAMA_NUM_PARALLEL=6"
 Environment="OLLAMA_MAX_LOADED_MODELS=1"

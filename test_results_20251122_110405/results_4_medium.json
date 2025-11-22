@@ -1,0 +1,77 @@
+{
+  "test_config": {
+    "endpoint": "http://localhost:11434",
+    "num_students": 4,
+    "duration": 30,
+    "model": "gemma2:9b",
+    "timestamp": "20251122_110607"
+  },
+  "overall": {
+    "total_time": 44.82580280303955,
+    "total_requests": 12,
+    "successful": 12,
+    "failed": 0,
+    "success_rate": 100.0,
+    "requests_per_second": 0.2677029578862624,
+    "total_tokens": 4699,
+    "overall_throughput": 104.82801659229558,
+    "mean_ttft": 0.20132007201512656,
+    "median_ttft": 0.19823312759399414,
+    "p95_ttft": 0.3260071277618408,
+    "p99_ttft": 0.3260071277618408
+  },
+  "per_student": [
+    {
+      "student_id": 1,
+      "total_requests": 3,
+      "successful": 3,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.22274104754130045,
+      "median_ttft": 0.2080528736114502,
+      "p95_ttft": 0.2618710994720459,
+      "avg_total_time": 11.719388961791992,
+      "total_tokens": 1181,
+      "tokens_per_second": 33.59105734523481
+    },
+    {
+      "student_id": 2,
+      "total_requests": 3,
+      "successful": 3,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.20637011528015137,
+      "median_ttft": 0.20291900634765625,
+      "p95_ttft": 0.21802425384521484,
+      "avg_total_time": 11.940388282140097,
+      "total_tokens": 1227,
+      "tokens_per_second": 34.25349246069025
+    },
+    {
+      "student_id": 3,
+      "total_requests": 3,
+      "successful": 3,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.23285913467407227,
+      "median_ttft": 0.19678664207458496,
+      "p95_ttft": 0.3260071277618408,
+      "avg_total_time": 11.458147207895914,
+      "total_tokens": 1150,
+      "tokens_per_second": 33.455088888121004
+    },
+    {
+      "student_id": 4,
+      "total_requests": 3,
+      "successful": 3,
+      "failed": 0,
+      "success_rate": 100.0,
+      "avg_ttft": 0.1433099905649821,
+      "median_ttft": 0.13666415214538574,
+      "p95_ttft": 0.16138792037963867,
+      "avg_total_time": 11.257961750030518,
+      "total_tokens": 1141,
+      "tokens_per_second": 33.78349845009043
+    }
+  ]
+}
